@@ -25,6 +25,7 @@ public class ServerConfig {
     // Logistics (Funnel, Chute, Belt)
     private static final ModConfigSpec.BooleanValue ENABLE_LAZY_FUNNEL;
     private static final ModConfigSpec.IntValue FUNNEL_DELAY_MAX;
+    private static final ModConfigSpec.IntValue FUNNEL_DELAY_DEFAULT;
     private static final ModConfigSpec.BooleanValue ENABLE_LAZY_CHUTE;
     private static final ModConfigSpec.IntValue CHUTE_DELAY_MAX;
     private static final ModConfigSpec.BooleanValue ENABLE_LAZY_BELT;
@@ -130,6 +131,11 @@ public class ServerConfig {
                 .comment("--------------------------------------------------------------------------")
                 .comment("max delay tick if funnel is rest")
                 .defineInRange("funnel_delay_max", 60, 20, Integer.MAX_VALUE);
+        FUNNEL_DELAY_DEFAULT = BUILDER
+                .comment("")
+                .comment("--------------------------------------------------------------------------")
+                .comment("default delay tick if funnel is unconfigured")
+                .defineInRange("funnel_delay_default", 5, 1, Integer.MAX_VALUE);
 
         // Chute
         ENABLE_LAZY_CHUTE = BUILDER
