@@ -132,15 +132,20 @@ public class ServerConfig {
                 .comment("--------------------------------------------------------------------------")
                 .comment("Whether to enable funnel lazy tick")
                 .define("enable_lazy_funnel", true);
-            ENABLE_FUNNEL_OVERCLOCK = BUILDER
+        ENABLE_FUNNEL_OVERCLOCK = BUILDER
                 .comment("WARNING: Funnel overclocking may cause lag under frequent redstone pulses.",
-                        "This conflicts with Create Lazy Tick's optimization goal. Enable only if needed.")
+                         "This conflicts with Create Lazy Tick's optimization goal. Enable only if needed.")
                 .define("enable_funnel_overclock", false);
         FUNNEL_DELAY_MAX = BUILDER
                 .comment("")
                 .comment("--------------------------------------------------------------------------")
                 .comment("max delay tick if funnel is rest")
                 .defineInRange("funnel_delay_max", 60, 20, Integer.MAX_VALUE);
+        FUNNEL_DELAY_DEFAULT = BUILDER
+                .comment("")
+                .comment("--------------------------------------------------------------------------")
+                .comment("default delay tick if funnel is not configured")
+                .defineInRange("funnel_delay_default", 5, 1, Integer.MAX_VALUE);
 
         // Chute
         ENABLE_LAZY_CHUTE = BUILDER
@@ -433,6 +438,10 @@ public class ServerConfig {
 
     public static int getFunnelDelayMax() {
         return FUNNEL_DELAY_MAX.get();
+    }
+    
+    public static int getFunnelDelayMax() {
+        return FUNNEL_DELAY_DEFAULT.get();
     }
 
     public static boolean getEnableLazyChute() {
