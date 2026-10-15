@@ -401,6 +401,10 @@ public class ServerConfig {
         return FUNNEL_DELAY_MAX.get();
     }
 
+    public static int getFunnelDelayDefault() {
+        return FUNNEL_DELAY_DEFAULT.get();
+    }
+
     public static boolean getEnableLazyChute() {
         return ENABLE_LAZY_CHUTE.get();
     }
